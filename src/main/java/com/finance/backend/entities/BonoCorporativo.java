@@ -82,7 +82,7 @@ public class BonoCorporativo {
 	@JoinColumn(
 			name = "CMoneda",
 			nullable = false,
-			referencedColumnName = "CDia",
+			referencedColumnName = "CMoneda",
 			foreignKey = @ForeignKey(name = "BonoCorporativo_Moneda_fk"))
 	private Moneda Moneda;
 }

@@ -14,7 +14,7 @@ import lombok.experimental.Accessors;
 @Table(
 		name = "Bonista",
 		uniqueConstraints = {
-			@UniqueConstraint(name = "bonista_usuario_unico", columnNames = "NUsuario")
+			@UniqueConstraint(name = "bonista_usuario_unico", columnNames = "TCorreo")
 		})
 @Data
 @Accessors(chain = true)
