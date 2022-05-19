@@ -14,8 +14,10 @@ import lombok.experimental.Accessors;
 @Accessors(chain = true)
 public class Bonista {
     private Long CBonista;
-    private String NUsuario;
     private String NBonista;
+    private String TCorreo;
+    private String TContrasena;
     private LocalDateTime DCreacion;
+    private Byte FActivo;
 
 }
