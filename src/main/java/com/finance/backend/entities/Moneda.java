@@ -19,4 +19,5 @@ public class Moneda {
     private Long CMoneda;
 
     private String NMoneda;
+	private String NSimbolo;
 }

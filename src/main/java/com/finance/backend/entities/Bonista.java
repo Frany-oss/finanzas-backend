@@ -29,5 +29,5 @@ public class Bonista {
     private String TCorreo;
     private String TContrasena;
     private LocalDateTime DCreacion;
-    private Byte FActivo;
+    private Boolean FActivo;
 }
