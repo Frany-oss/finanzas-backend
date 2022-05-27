@@ -22,7 +22,7 @@ public class AnioBono {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long CAnioBono;
 
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(
             name = "CBonoCorporativo",
             nullable = false,
