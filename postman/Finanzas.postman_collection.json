@@ -63,78 +63,6 @@
 			"response": []
 		},
 		{
-			"name": "monedas",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{base_url}}/api/monedas",
-					"host": [
-						"{{base_url}}"
-					],
-					"path": [
-						"api",
-						"monedas"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "periodos",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{base_url}}/api/periodos",
-					"host": [
-						"{{base_url}}"
-					],
-					"path": [
-						"api",
-						"periodos"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "tipos tasa",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{base_url}}/api/tipostasa",
-					"host": [
-						"{{base_url}}"
-					],
-					"path": [
-						"api",
-						"tipostasa"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "dias",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{base_url}}/api/dias",
-					"host": [
-						"{{base_url}}"
-					],
-					"path": [
-						"api",
-						"dias"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "get bonos by correo",
 			"request": {
 				"method": "GET",
@@ -160,7 +88,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"nombreCalculoBono\": \"Primer bono\",\n    \"fechaEmision\": \"2022-05-27T23:30:00\",\n    \"valorNominal\": \"69.99\",\n    \"valorComercial\": \"102.02\",\n    \"perCavali\": \"55.44\",\n    \"perColocacion\": \"123.001\",\n    \"perFlotacion\": \"29.599\",\n    \"perEstructuracion\": \"100.00\",\n    \"perlmportRenta\": \"190.10\",\n    \"perTasaAnualDescuento\": \"12.65\",\n    \"aniosPago\": \"2\",\n    \"periodosGracia\": \"2\",\n    \"bonistaCorreo\": \"francesco@gmail.com\",\n    \"periodoFrecuenciaCuponId\": 1,\n    \"periodoCapitalizacionId\": 1,\n    \"tipoTasaId\": 1,\n    \"diaId\": 1,\n    \"monedaId\": 1\n}",
+					"raw": "{\n    \"nombreCalculoBono\": \"Bono 2\",\n    \"fechaEmision\": \"2022-05-30T12:30:00\",\n    \"valorNominal\": \"69.99\",\n    \"valorComercial\": \"102.02\",\n    \"perCavali\": \"55.44\",\n    \"perColocacion\": \"123.001\",\n    \"perFlotacion\": \"29.599\",\n    \"perEstructuracion\": \"100.00\",\n    \"perImportRenta\": \"190.10\",\n    \"perTasaAnualDescuento\": \"12.65\",\n    \"aniosPago\": \"4\",\n    \"periodosGracia\": \"4\",\n    \"tipoTasaEfectiva\": true,\n    \"numeroDias\": 360,\n    \"tipoPeriodoFrecuenciaCupon\": 3,\n    \"tipoPeriodoCapitalTn\": 4,\n    \"nombreMoneda\": \"Nuevos soles\",\n    \"bonistaCorreo\": \"francesco@gmail.com\",\n    \"inflacionesAnuales\": [\"0.02\", \"0.03\", \"0.03\", \"0.02\"]\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -168,13 +96,13 @@
 					}
 				},
 				"url": {
-					"raw": "{{base_url}}/api/bono",
+					"raw": "{{base_url}}/api/bonos",
 					"host": [
 						"{{base_url}}"
 					],
 					"path": [
 						"api",
-						"bono"
+						"bonos"
 					]
 				}
 			},
