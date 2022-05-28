@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class CreateBonistaDto {
-	private String nombre;
-	private String correo;
-	private String contrasena;
+  private String nombre;
+  private String correo;
+  private String contrasena;
 }

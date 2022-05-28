@@ -8,11 +8,11 @@ import org.springframework.context.annotation.Primary;
 
 @Configuration
 public class ModelMapperConfig {
-    @Bean
-    @Primary
-    public static ModelMapper modelMapper() {
-        ModelMapper mapper = new ModelMapper();
-        mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
-        return mapper;
-    }
+  @Bean
+  @Primary
+  public static ModelMapper modelMapper() {
+    ModelMapper mapper = new ModelMapper();
+    mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+    return mapper;
+  }
 }

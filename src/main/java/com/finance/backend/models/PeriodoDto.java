@@ -6,7 +6,7 @@ import lombok.experimental.Accessors;
 @Data
 @Accessors(chain = true)
 public class PeriodoDto {
-    private Long CPeriodo;
-    private String NPeriodo;
-    private Integer QDias;
+  private Long CPeriodo;
+  private String NPeriodo;
+  private Integer QDias;
 }

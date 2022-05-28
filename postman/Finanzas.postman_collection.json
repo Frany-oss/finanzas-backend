@@ -1,0 +1,165 @@
+{
+	"info": {
+		"_postman_id": "439c6038-0a4c-41b3-8aea-eb736266eb9d",
+		"name": "Finanzas",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15621437"
+	},
+	"item": [
+		{
+			"name": "bonista signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\" : \"Renzo\",\n    \"correo\" : \"renxzen@gmail.com\",\n    \"contrasena\" : \"password123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/bonista/signup",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"bonista",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "bonista login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"correo\" : \"renxzen@gmail.com\",\n    \"contrasena\" : \"password123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/bonista/login",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"bonista",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "monedas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/monedas",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"monedas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "periodos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/periodos",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"periodos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "tipos tasa",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/tipostasa",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"tipostasa"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "dias",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/dias",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"dias"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8000",
+			"type": "string"
+		}
+	]
+}
