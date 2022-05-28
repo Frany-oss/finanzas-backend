@@ -33,16 +33,16 @@ public class InsertData implements ApplicationRunner {
   private void insertPeriodos() {
     var periodos =
         List.of(
-            new Periodo().setCPeriodo(0L).setNPeriodo("Diario").setQDias(1),
-            new Periodo().setCPeriodo(1L).setNPeriodo("Quincenal").setQDias(15),
-            new Periodo().setCPeriodo(2L).setNPeriodo("Mensual").setQDias(30),
-            new Periodo().setCPeriodo(3L).setNPeriodo("Bimestral").setQDias(60),
-            new Periodo().setCPeriodo(4L).setNPeriodo("Trimestral").setQDias(90),
-            new Periodo().setCPeriodo(5L).setNPeriodo("Cuatrimestral").setQDias(120),
-            new Periodo().setCPeriodo(6L).setNPeriodo("Semestral").setQDias(180),
-            new Periodo().setCPeriodo(7L).setNPeriodo("Anual").setQDias(360));
+            new Periodo().setNPeriodo("Diario").setQDias(1),
+            new Periodo().setNPeriodo("Quincenal").setQDias(15),
+            new Periodo().setNPeriodo("Mensual").setQDias(30),
+            new Periodo().setNPeriodo("Bimestral").setQDias(60),
+            new Periodo().setNPeriodo("Trimestral").setQDias(90),
+            new Periodo().setNPeriodo("Cuatrimestral").setQDias(120),
+            new Periodo().setNPeriodo("Semestral").setQDias(180),
+            new Periodo().setNPeriodo("Anual").setQDias(360));
 
-    if (periodoRepository.findById(0L).isEmpty()) {
+    if (periodoRepository.findById(1L).isEmpty()) {
       periodos.forEach(periodo -> periodoRepository.save(periodo));
     }
   }
@@ -53,7 +53,7 @@ public class InsertData implements ApplicationRunner {
             new Dia().setNDia("Ordinarios").setQDia(360),
             new Dia().setNDia("Exactos").setQDia(365));
 
-    if (diaRepository.findById(0L).isEmpty()) {
+    if (diaRepository.findById(1L).isEmpty()) {
       dias.forEach(dia -> diaRepository.save(dia));
     }
   }
@@ -64,7 +64,7 @@ public class InsertData implements ApplicationRunner {
             new TipoTasa().setNtipoTasa("Tasa Efectiva"),
             new TipoTasa().setNtipoTasa("Tasa Nominal"));
 
-    if (tipoTasaRepository.findById(0L).isEmpty()) {
+    if (tipoTasaRepository.findById(1L).isEmpty()) {
       tiposTasa.forEach(tipoTasa -> tipoTasaRepository.save(tipoTasa));
     }
   }
@@ -105,7 +105,7 @@ public class InsertData implements ApplicationRunner {
             new Moneda().setNMoneda("Peso chileno").setNSimbolo("CLP"),
             new Moneda().setNMoneda("Peso filipino").setNSimbolo("PHP"));
 
-    if (monedaRepository.findById(0L).isEmpty()) {
+    if (monedaRepository.findById(1L).isEmpty()) {
       monedas.forEach(moneda -> monedaRepository.save(moneda));
     }
   }

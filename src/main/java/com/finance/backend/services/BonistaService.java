@@ -18,16 +18,20 @@ public class BonistaService {
   private final ModelMapper modelMapper;
 
   public BonistaDto registerBonista(CreateBonistaDto createBonistaDto) throws Exception {
-    return Optional.of(
-            bonistaRepository.save(
-                new Bonista()
-                    .setNBonista(createBonistaDto.getNombre())
-                    .setTCorreo(createBonistaDto.getCorreo())
-                    .setTContrasena(createBonistaDto.getContrasena())
-                    .setDCreacion(LocalDateTime.now())
-                    .setFActivo(true)))
-        .map(b -> modelMapper.map(b, BonistaDto.class))
-        .orElseThrow(() -> new Exception("Error al crear el bonista"));
+    return bonistaRepository.findByTCorreo(createBonistaDto.getCorreo()).isPresent()
+        ? (BonistaDto)
+            Optional.ofNullable(null)
+                .orElseThrow(() -> new Exception("Correo ya registrado por otro huevón"))
+        : Optional.of(
+                bonistaRepository.save(
+                    new Bonista()
+                        .setNBonista(createBonistaDto.getNombre())
+                        .setTCorreo(createBonistaDto.getCorreo())
+                        .setTContrasena(createBonistaDto.getContrasena())
+                        .setDCreacion(LocalDateTime.now())
+                        .setFActivo(true)))
+            .map(b -> modelMapper.map(b, BonistaDto.class))
+            .orElseThrow(() -> new Exception("Error al crear el bonista"));
   }
 
   public BonistaDto getBonistaByCorreo(String correo) throws Exception {

@@ -30,46 +30,55 @@ public class BusinessService {
   private final DiaRepository diaRepository;
   private final ModelMapper modelMapper;
 
-  public BonoCorporativoDto CreateBonoCorporativo(CreateBonoCorporativoDto createBonoCorporativoDto)
+  public BonoCorporativoDto createBonoCorporativo(CreateBonoCorporativoDto createBonoCorporativoDto)
       throws Exception {
     return Optional.of(
             bonoCorporativoRepository.save(
                 new BonoCorporativo()
-                    .setDEmision(createBonoCorporativoDto.getDEmision())
-                    .setMValorComercial(createBonoCorporativoDto.getMValorComercial())
-                    .setMValorNominal(createBonoCorporativoDto.getMValorNominal())
-                    .setNCalculoBono(createBonoCorporativoDto.getNCalculoBono())
+                    .setNCalculoBono(createBonoCorporativoDto.getNombreCalculoBono())
+                    .setDEmision(createBonoCorporativoDto.getFechaEmision())
+                    .setMValorNominal(createBonoCorporativoDto.getValorNominal())
+                    .setMValorComercial(createBonoCorporativoDto.getValorComercial())
                     .setPerCavali(createBonoCorporativoDto.getPerCavali())
                     .setPerColocacion(createBonoCorporativoDto.getPerColocacion())
-                    .setPerEstructuracion(createBonoCorporativoDto.getPerEstructuracion())
                     .setPerFlotacion(createBonoCorporativoDto.getPerFlotacion())
+                    .setPerEstructuracion(createBonoCorporativoDto.getPerEstructuracion())
+                    .setPerImportRenta(createBonoCorporativoDto.getPerlmportRenta())
                     .setPerTasaAnualDescuento(createBonoCorporativoDto.getPerTasaAnualDescuento())
+                    .setQAniosPago(createBonoCorporativoDto.getAniosPago())
+                    .setQPeriodosGracia(createBonoCorporativoDto.getPeriodosGracia())
                     .setBonista(
                         bonistaRepository
-                            .findById(createBonoCorporativoDto.getCBonista())
+                            .findByTCorreo(createBonoCorporativoDto.getBonistaCorreo())
                             .orElseThrow(() -> new Exception("Error al obtener bonista")))
                     .setPeriodoFrecuenciaCupon(
                         periodoRepository
-                            .findById(createBonoCorporativoDto.getCPeriodoFrecuenciaCupon())
+                            .findById(createBonoCorporativoDto.getPeriodoFrecuenciaCuponId())
                             .orElseThrow(() -> new Exception("Error al obtener periodo")))
                     .setPeriodoCapitalizacionTN(
                         periodoRepository
-                            .findById(createBonoCorporativoDto.getCPeriodoCapitalizacionTN())
+                            .findById(createBonoCorporativoDto.getPeriodoCapitalizacionId())
                             .orElseThrow(() -> new Exception("Error al obtener periodo")))
                     .setTipoTasa(
                         tipoTasaRepository
-                            .findById(createBonoCorporativoDto.getCTipoTasa())
+                            .findById(createBonoCorporativoDto.getTipoTasaId())
                             .orElseThrow(() -> new Exception("Error al obtener tipo tasa")))
                     .setMoneda(
                         monedaRepository
-                            .findById(createBonoCorporativoDto.getCMoneda())
+                            .findById(createBonoCorporativoDto.getDiaId())
                             .orElseThrow(() -> new Exception("Error al obtener moneda")))
                     .setDia(
                         diaRepository
-                            .findById(createBonoCorporativoDto.getCDia())
+                            .findById(createBonoCorporativoDto.getMonedaId())
                             .orElseThrow(() -> new Exception("Error al obtener dia")))))
         .map(bonoCorporativo -> modelMapper.map(bonoCorporativo, BonoCorporativoDto.class))
         .orElseThrow(() -> new Exception("Error al guardar bono corporativo"));
+  }
+
+  public List<BonoCorporativoDto> getBonosCorporativoByBonistaCorreo(String correo) {
+    return bonoCorporativoRepository.findByBonistaTCorreo(correo).stream()
+        .map(bonoCorporativo -> modelMapper.map(bonoCorporativo, BonoCorporativoDto.class))
+        .toList();
   }
 
   public List<MonedaDto> getMonedas() throws Exception {

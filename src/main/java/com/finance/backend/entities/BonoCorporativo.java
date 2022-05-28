@@ -32,7 +32,7 @@ public class BonoCorporativo {
   private BigDecimal PerColocacion;
   private BigDecimal PerFlotacion;
   private BigDecimal PerEstructuracion;
-  private BigDecimal PerlmportRenta;
+  private BigDecimal PerImportRenta;
   private BigDecimal PerTasaAnualDescuento;
 
   private Integer QAniosPago;
@@ -44,7 +44,7 @@ public class BonoCorporativo {
       nullable = false,
       referencedColumnName = "CBonista",
       foreignKey = @ForeignKey(name = "BonoCorporativo_Bonista_fk"))
-  private Bonista Bonista;
+  private Bonista bonista;
 
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(

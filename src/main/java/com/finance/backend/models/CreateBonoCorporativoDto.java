@@ -6,23 +6,22 @@ import lombok.Data;
 
 @Data
 public class CreateBonoCorporativoDto {
-  private Long CBonoCorporativo;
-  private String NCalculoBono;
-  private LocalDateTime DEmision;
-  private BigDecimal MValorNominal;
-  private BigDecimal MValorComercial;
-  private BigDecimal PerCavali;
-  private BigDecimal PerColocacion;
-  private BigDecimal PerFlotacion;
-  private BigDecimal PerEstructuracion;
-  private BigDecimal PerlmportRenta;
-  private BigDecimal PerTasaAnualDescuento;
-  private Integer QAniosPago;
-  private Integer QPeriodosGracia;
-  private Long CBonista;
-  private Long CPeriodoFrecuenciaCupon;
-  private Long CPeriodoCapitalizacionTN;
-  private Long CTipoTasa;
-  private Long CDia;
-  private Long CMoneda;
+  private String nombreCalculoBono;
+  private LocalDateTime fechaEmision;
+  private BigDecimal valorNominal;
+  private BigDecimal valorComercial;
+  private BigDecimal perCavali;
+  private BigDecimal perColocacion;
+  private BigDecimal perFlotacion;
+  private BigDecimal perEstructuracion;
+  private BigDecimal perlmportRenta;
+  private BigDecimal perTasaAnualDescuento;
+  private Integer aniosPago;
+  private Integer periodosGracia;
+  private String bonistaCorreo;
+  private Long periodoFrecuenciaCuponId;
+  private Long periodoCapitalizacionId;
+  private Long tipoTasaId;
+  private Long diaId;
+  private Long monedaId;
 }
