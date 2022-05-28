@@ -13,7 +13,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"nombre\" : \"Renzo\",\n    \"correo\" : \"renxzen@gmail.com\",\n    \"contrasena\" : \"password123\"\n}",
+					"raw": "{\n    \"nombre\" : \"Francesco Bassino Salami\",\n    \"correo\" : \"francesco@gmail.com\",\n    \"contrasena\" : \"password123\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -41,7 +41,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"correo\" : \"renxzen@gmail.com\",\n    \"contrasena\" : \"password123\"\n}",
+					"raw": "{\n    \"correo\" : \"francesco@gmail.com\",\n    \"contrasena\" : \"password123\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -129,6 +129,52 @@
 					"path": [
 						"api",
 						"dias"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get bonos by correo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/bonos/francesco@gmail.com",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"bonos",
+						"francesco@gmail.com"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crear bono corporativo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombreCalculoBono\": \"Primer bono\",\n    \"fechaEmision\": \"2022-05-27T23:30:00\",\n    \"valorNominal\": \"69.99\",\n    \"valorComercial\": \"102.02\",\n    \"perCavali\": \"55.44\",\n    \"perColocacion\": \"123.001\",\n    \"perFlotacion\": \"29.599\",\n    \"perEstructuracion\": \"100.00\",\n    \"perlmportRenta\": \"190.10\",\n    \"perTasaAnualDescuento\": \"12.65\",\n    \"aniosPago\": \"2\",\n    \"periodosGracia\": \"2\",\n    \"bonistaCorreo\": \"francesco@gmail.com\",\n    \"periodoFrecuenciaCuponId\": 1,\n    \"periodoCapitalizacionId\": 1,\n    \"tipoTasaId\": 1,\n    \"diaId\": 1,\n    \"monedaId\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/bono",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"bono"
 					]
 				}
 			},
