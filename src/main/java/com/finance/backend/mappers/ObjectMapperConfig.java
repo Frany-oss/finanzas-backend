@@ -1,12 +1,13 @@
-package com.finance.backend.config;
+package com.finance.backend.mappers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import com.finance.backend.config.serializers.BigDecimalSerializer;
-import com.finance.backend.config.serializers.LocalDateSerializer;
-import com.finance.backend.config.serializers.LocalDateTimeSerializer;
+import com.finance.backend.mappers.serializers.BigDecimalSerializer;
+import com.finance.backend.mappers.serializers.LocalDateSerializer;
+import com.finance.backend.mappers.serializers.LocalDateTimeSerializer;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;

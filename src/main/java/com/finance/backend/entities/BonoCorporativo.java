@@ -2,6 +2,9 @@ package com.finance.backend.entities;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.ForeignKey;
@@ -9,80 +12,51 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
 @Entity
-@Table(name = "BonoCorporativo")
+@Table(name = "bono_corporativo")
 @Data
 @Accessors(chain = true)
 public class BonoCorporativo {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long CBonoCorporativo;
-
-  private String NCalculoBono;
-  private LocalDateTime DEmision;
-  private BigDecimal MValorNominal;
-  private BigDecimal MValorComercial;
-  private BigDecimal PerCavali;
-  private BigDecimal PerColocacion;
-  private BigDecimal PerFlotacion;
-  private BigDecimal PerEstructuracion;
-  private BigDecimal PerImportRenta;
-  private BigDecimal PerTasaAnualDescuento;
-
-  private Integer QAniosPago;
-  private Integer QPeriodosGracia;
+  @Column(name = "bono_corporativo_id")
+  private Long bonoCorporativoId;
+  
+  private String nombreCalculoBono;
+  private LocalDateTime fechaEmision;
+  private BigDecimal valorNominal;
+  private BigDecimal valorComercial;
+  private BigDecimal perCavali;
+  private BigDecimal perColocacion;
+  private BigDecimal perFlotacion;
+  private BigDecimal perEstructuracion;
+  private BigDecimal perImportRenta;
+  private BigDecimal perTasaAnualDescuento;
+  private Integer aniosPago;
+  private Integer periodosGracia;
+  private Boolean tipoTasaEfectiva;
+  private Integer numeroDias;
+  private Integer tipoPeriodoFrecuenciaCupon;
+  private Integer tipoPeriodoCapitalTn;
+  private String nombreMoneda;
 
   @OneToOne(fetch = FetchType.EAGER)
   @JoinColumn(
-      name = "CBonista",
+      name = "bonista_id",
       nullable = false,
-      referencedColumnName = "CBonista",
-      foreignKey = @ForeignKey(name = "BonoCorporativo_Bonista_fk"))
+      referencedColumnName = "bonista_id",
+      foreignKey = @ForeignKey(name = "bono_corporativo_bonista_fk"))
   private Bonista bonista;
 
-  @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(
-      name = "CPeriodoFrecuenciaCupon",
-      nullable = false,
-      referencedColumnName = "CPeriodo",
-      foreignKey = @ForeignKey(name = "BonoCorporativo_PeriodoFrecuenciaCupon_fk"))
-  private Periodo PeriodoFrecuenciaCupon;
-
-  @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(
-      name = "CPeriodoCapitalizacionTN",
-      nullable = false,
-      referencedColumnName = "CPeriodo",
-      foreignKey = @ForeignKey(name = "BonoCorporativo_PeriodoCapitalizacionTN_fk"))
-  private Periodo PeriodoCapitalizacionTN;
-
-  @ManyToOne(fetch = FetchType.EAGER)
-  @JoinColumn(
-      name = "CTipoTasa",
-      nullable = false,
-      referencedColumnName = "CTipoTasa",
-      foreignKey = @ForeignKey(name = "BonoCorporativo_TipoTasa_fk"))
-  private TipoTasa TipoTasa;
-
-  @ManyToOne(fetch = FetchType.EAGER)
-  @JoinColumn(
-      name = "CDia",
-      nullable = false,
-      referencedColumnName = "CDia",
-      foreignKey = @ForeignKey(name = "BonoCorporativo_Dia_fk"))
-  private Dia Dia;
-
-  @ManyToOne(fetch = FetchType.EAGER)
-  @JoinColumn(
-      name = "CMoneda",
-      nullable = false,
-      referencedColumnName = "CMoneda",
-      foreignKey = @ForeignKey(name = "BonoCorporativo_Moneda_fk"))
-  private Moneda Moneda;
+  @OneToMany(
+      fetch = FetchType.EAGER,
+      cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+  @JoinColumn(name = "bono_corporativo_id")
+  private List<AnioBono> inflacionAnual;
 }

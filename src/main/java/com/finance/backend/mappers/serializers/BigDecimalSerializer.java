@@ -1,4 +1,4 @@
-package com.finance.backend.config.serializers;
+package com.finance.backend.mappers.serializers;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.JsonSerializer;

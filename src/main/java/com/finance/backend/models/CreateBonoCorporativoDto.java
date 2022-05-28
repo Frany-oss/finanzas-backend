@@ -2,6 +2,7 @@ package com.finance.backend.models;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
 import lombok.Data;
 
 @Data
@@ -14,14 +15,15 @@ public class CreateBonoCorporativoDto {
   private BigDecimal perColocacion;
   private BigDecimal perFlotacion;
   private BigDecimal perEstructuracion;
-  private BigDecimal perlmportRenta;
+  private BigDecimal perImportRenta;
   private BigDecimal perTasaAnualDescuento;
   private Integer aniosPago;
   private Integer periodosGracia;
+  private Boolean tipoTasaEfectiva;
+  private Integer numeroDias;
+  private Integer tipoPeriodoFrecuenciaCupon;
+  private Integer tipoPeriodoCapitalTn;
+  private String nombreMoneda;
   private String bonistaCorreo;
-  private Long periodoFrecuenciaCuponId;
-  private Long periodoCapitalizacionId;
-  private Long tipoTasaId;
-  private Long diaId;
-  private Long monedaId;
+  private List<BigDecimal> inflacionesAnuales;
 }

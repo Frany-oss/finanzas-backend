@@ -1,6 +1,7 @@
 package com.finance.backend.entities;
 
 import java.time.LocalDateTime;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,20 +13,19 @@ import lombok.experimental.Accessors;
 
 @Entity
 @Table(
-    name = "Bonista",
-    uniqueConstraints = {
-      @UniqueConstraint(name = "bonista_usuario_unico", columnNames = "TCorreo")
-    })
+    name = "bonista",
+    uniqueConstraints = {@UniqueConstraint(name = "bonista_usuario_unico", columnNames = "correo")})
 @Data
 @Accessors(chain = true)
 public class Bonista {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long CBonista;
+  @Column(name = "bonista_id")
+  private Long bonistaId;
 
-  private String NBonista;
-  private String TCorreo;
-  private String TContrasena;
-  private LocalDateTime DCreacion;
-  private Boolean FActivo;
+  private String nombre;
+  private String correo;
+  private String contrasena;
+  private LocalDateTime fechaCreacion;
+  private Boolean activo;
 }

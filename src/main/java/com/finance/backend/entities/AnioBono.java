@@ -1,5 +1,7 @@
 package com.finance.backend.entities;
 
+import java.math.BigDecimal;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.ForeignKey;
@@ -13,22 +15,23 @@ import lombok.Data;
 import lombok.experimental.Accessors;
 
 @Entity
-@Table(name = "AnioBono")
+@Table(name = "anio_bono")
 @Data
 @Accessors(chain = true)
 public class AnioBono {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long CAnioBono;
+  @Column(name = "anio_bono_id")
+  private Long anioBonoId;
+
+  private Integer numeroAnio;
+  private BigDecimal perInflacion;
 
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(
-      name = "CBonoCorporativo",
+      name = "bono_corporativo_id",
       nullable = false,
-      referencedColumnName = "CBonoCorporativo",
-      foreignKey = @ForeignKey(name = "AnioBono_BonoCorporativo_fk"))
-  private BonoCorporativo BonoCorporativo;
-
-  private Integer NumAnio;
-  private Float PerInflacion;
+      referencedColumnName = "bono_corporativo_id",
+      foreignKey = @ForeignKey(name = "anio_bono_bono_corporativo_fk"))
+  private BonoCorporativo bonoCorporativo;
 }
