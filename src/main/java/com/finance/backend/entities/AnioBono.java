@@ -22,10 +22,10 @@ public class AnioBono {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "anio_bono_id")
-  private Long anioBonoId;
+  private Long CAnioBono;
 
-  private Integer numeroAnio;
-  private BigDecimal perInflacion;
+  private Integer NumAnio;
+  private BigDecimal PerInflacion;
 
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(
