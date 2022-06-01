@@ -21,11 +21,11 @@ public class Bonista {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "bonista_id")
-  private Long bonistaId;
+  private Long CBonista;
 
-  private String nombre;
-  private String correo;
-  private String contrasena;
-  private LocalDateTime fechaCreacion;
-  private Boolean activo;
+  private String NBonista;
+  private String TCorreo;
+  private String TContrasena;
+  private LocalDateTime DCreacion;
+  private Boolean FActivo;
 }
