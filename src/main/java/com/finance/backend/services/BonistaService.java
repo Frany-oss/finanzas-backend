@@ -18,32 +18,32 @@ public class BonistaService {
   private final ModelMapper modelMapper;
 
   public BonistaDto registerBonista(CreateBonistaDto createBonistaDto) throws Exception {
-    return bonistaRepository.findByCorreo(createBonistaDto.getCorreo()).isPresent()
+    return bonistaRepository.findByCorreo(createBonistaDto.getTCorreo()).isPresent()
         ? (BonistaDto)
             Optional.ofNullable(null)
                 .orElseThrow(() -> new Exception("Correo ya registrado por otro huevón"))
         : Optional.of(
                 bonistaRepository.save(
                     new Bonista()
-                        .setNombre(createBonistaDto.getNombre())
-                        .setCorreo(createBonistaDto.getCorreo())
-                        .setContrasena(createBonistaDto.getContrasena())
-                        .setFechaCreacion(LocalDateTime.now())
-                        .setActivo(true)))
+                        .setNBonista(createBonistaDto.getNBonista())
+                        .setTCorreo(createBonistaDto.getTCorreo())
+                        .setTContrasena(createBonistaDto.getTContrasena())
+                        .setDCreacion(LocalDateTime.now())
+                        .setFActivo(true)))
             .map(b -> modelMapper.map(b, BonistaDto.class))
             .orElseThrow(() -> new Exception("Error al crear el bonista"));
   }
 
   public BonistaDto getBonistaByCorreo(String correo) throws Exception {
     return bonistaRepository
-        .findByCorreo(correo)
+        .findByCorreo(TCorreo)
         .map(b -> modelMapper.map(b, BonistaDto.class))
         .orElseThrow(() -> new Exception("Error al obtener el bonista"));
   }
 
   public BonistaDto loginBonista(LoginBonistaDto login) throws Exception {
     return Optional.of(
-            bonistaRepository.findByCorreoAndContrasena(login.getCorreo(), login.getContrasena()))
+            bonistaRepository.findByCorreoAndContrasena(login.getTCorreo(), login.getTContrasena()))
         .map(b -> modelMapper.map(b, BonistaDto.class))
         .orElseThrow(() -> new Exception("Credenciales incorrectos"));
   }

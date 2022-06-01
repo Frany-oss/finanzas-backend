@@ -26,23 +26,23 @@ public class BonoCorporativoService {
     return Optional.of(
             bonoCorporativoRepository.save(
                 new BonoCorporativo()
-                    .setNombreCalculoBono(body.getNombreCalculoBono())
-                    .setFechaEmision(body.getFechaEmision())
-                    .setValorNominal(body.getValorNominal())
-                    .setValorComercial(body.getValorComercial())
+                    .setNCalculoBono(body.getNCalculoBono())
+                    .setDEmision(body.getDEmision())
+                    .setMValorNominal(body.getMValorNominal())
+                    .setMValorComercial(body.getMValorComercial())
                     .setPerCavali(body.getPerCavali())
                     .setPerColocacion(body.getPerColocacion())
                     .setPerFlotacion(body.getPerFlotacion())
                     .setPerEstructuracion(body.getPerEstructuracion())
                     .setPerImportRenta(body.getPerImportRenta())
                     .setPerTasaAnualDescuento(body.getPerTasaAnualDescuento())
-                    .setAniosPago(body.getAniosPago())
-                    .setPeriodosGracia(body.getPeriodosGracia())
-                    .setTipoTasaEfectiva(body.getTipoTasaEfectiva())
-                    .setNumeroDias(body.getNumeroDias())
-                    .setTipoPeriodoFrecuenciaCupon(body.getTipoPeriodoFrecuenciaCupon())
-                    .setTipoPeriodoCapitalTn(body.getTipoPeriodoCapitalTn())
-                    .setNombreMoneda(body.getNombreMoneda())
+                    .setQAniosPago(body.getQAniosPago())
+                    .setQPeriodosGracia(body.getQPeriodosGracia())
+                    .setCTipoTasa(body.getCTipoTasa())
+                    .setCDia(body.getCDia())
+                    .setCFrecuenciaCupon(body.getCFrecuenciaCupon())
+                    .setCPeriodoCapitalizacionTN(body.getCPeriodoCapitalizacionTN())
+                    .setCMoneda(body.getCMoneda())
                     .setBonista(
                         bonistaRepository
                             .findByCorreo(body.getBonistaCorreo())
@@ -51,13 +51,13 @@ public class BonoCorporativoService {
             bono ->
                 modelMapper.map(
                     bono.setInflacionAnual(
-                        IntStream.range(0, body.getAniosPago())
+                        IntStream.range(0, body.getQAniosPago())
                             .boxed()
                             .map(
                                 idx ->
                                     anioBonoRepository.save(
                                         new AnioBono()
-                                            .setNumeroAnio(idx + 1)
+                                            .setNumAnio(idx + 1)
                                             .setPerInflacion(body.getInflacionesAnuales().get(idx))
                                             .setBonoCorporativo(bono)))
                             .toList()),
@@ -66,7 +66,7 @@ public class BonoCorporativoService {
   }
 
   public List<BonoCorporativoDto> getBonosCorporativoByBonistaCorreo(String correo) {
-    return bonoCorporativoRepository.findByBonistaCorreo(correo).stream()
+    return bonoCorporativoRepository.findByBonistaCorreo(TCorreo).stream()
         .map(bono -> modelMapper.map(bono, BonoCorporativoDto.class))
         .toList();
   }

@@ -6,6 +6,6 @@ import lombok.experimental.Accessors;
 @Data
 @Accessors(chain = true)
 public class LoginBonistaDto {
-  private String correo;
-  private String contrasena;
+  private String TCorreo;
+  private String TContrasena;
 }

@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 public interface BonistaRepository extends JpaRepository<Bonista, Long> {
   List<Bonista> findAll();
 
-  Optional<Bonista> findByCorreo(String correo);
+  Optional<Bonista> findByCorreo(String TCorreo);
 
-  Optional<Bonista> findByCorreoAndContrasena(String correo, String contrasena);
+  Optional<Bonista> findByCorreoAndContrasena(String TCorreo, String TContrasena);
 }
