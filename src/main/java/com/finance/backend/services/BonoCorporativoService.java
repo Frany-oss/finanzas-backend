@@ -66,7 +66,7 @@ public class BonoCorporativoService {
   }
 
   public List<BonoCorporativoDto> getBonosCorporativoByBonistaCorreo(String correo) {
-    return bonoCorporativoRepository.findByBonistaCorreo(correo).stream()
+    return bonoCorporativoRepository.findByBonistaCorreo(TCorreo).stream()
         .map(bono -> modelMapper.map(bono, BonoCorporativoDto.class))
         .toList();
   }
