@@ -9,5 +9,5 @@ import org.springframework.stereotype.Repository;
 public interface BonoCorporativoRepository extends JpaRepository<BonoCorporativo, Long> {
   List<BonoCorporativo> findAll();
 
-  List<BonoCorporativo> findByBonistaCorreo(String correo);
+  List<BonoCorporativo> findByBonistaCorreo(String Tcorreo);
 }
