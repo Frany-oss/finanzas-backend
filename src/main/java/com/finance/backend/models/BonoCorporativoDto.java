@@ -12,23 +12,26 @@ import lombok.experimental.Accessors;
 @Data
 @Accessors(chain = true)
 public class BonoCorporativoDto {
-  @JsonIgnore private Long bonoCorporativoId;
-  private String nombreCalculoBono;
-  private LocalDateTime fechaEmision;
-  private BigDecimal valorNominal;
-  private BigDecimal valorComercial;
-  private BigDecimal perCavali;
-  private BigDecimal perColocacion;
-  private BigDecimal perFlotacion;
-  private BigDecimal perEstructuracion;
-  private BigDecimal perImportRenta;
-  private BigDecimal perTasaAnualDescuento;
-  private Integer aniosPago;
-  private Integer periodosGracia;
-  private Boolean tipoTasaEfectiva;
-  private Integer numeroDias;
-  private Integer tipoPeriodoFrecuenciaCupon;
-  private Integer tipoPeriodoCapitalTn;
-  private String nombreMoneda;
+	
+  @JsonIgnore private Long CBonoCorporativo;
+  
+  private String NCalculoBono;
+  private LocalDateTime DEmision;
+  private BigDecimal MValorNominal;
+  private BigDecimal MValorComercial;
+  private BigDecimal PerCavali;
+  private BigDecimal PerColocacion;
+  private BigDecimal PerFlotacion;
+  private BigDecimal PerEstructuracion;
+  private BigDecimal PerImportRenta;
+  private BigDecimal PerTasaAnualDescuento;
+  private Integer QAniosPago;
+  private Integer CFrecuenciaCupon;
+  private Boolean CTipoTasa;
+  private Integer CPeriodoCapitaltizacionTN;
+  private Integer CDia;
+  private Integer QPeriodosGracia;
+  private String CMoneda;
+  
   private List<BigDecimal> inflacionAnual;
 }
