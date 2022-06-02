@@ -18,13 +18,16 @@ import lombok.experimental.Accessors;
 @Table(name = "anio_bono")
 @Data
 @Accessors(chain = true)
+
 public class AnioBono {
+	
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "anio_bono_id")
   private Long anioBonoId;
 
   private Integer numeroAnio;
+  
   private BigDecimal perInflacion;
 
   @ManyToOne(fetch = FetchType.LAZY)
@@ -33,5 +36,6 @@ public class AnioBono {
       nullable = false,
       referencedColumnName = "bono_corporativo_id",
       foreignKey = @ForeignKey(name = "anio_bono_bono_corporativo_fk"))
+  
   private BonoCorporativo bonoCorporativo;
 }
