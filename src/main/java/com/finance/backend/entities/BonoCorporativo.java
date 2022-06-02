@@ -22,10 +22,13 @@ import lombok.experimental.Accessors;
 @Table(name = "bono_corporativo")
 @Data
 @Accessors(chain = true)
+
 public class BonoCorporativo {
+	
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "bono_corporativo_id")
+  
   private Long bonoCorporativoId;
   
   private String nombreCalculoBono;
