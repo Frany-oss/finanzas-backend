@@ -7,5 +7,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface AnioBonoRepository extends JpaRepository<AnioBono, Long> {
+	
   List<AnioBono> findAll();
 }
