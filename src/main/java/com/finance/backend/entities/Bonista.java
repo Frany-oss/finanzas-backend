@@ -17,12 +17,13 @@ import lombok.experimental.Accessors;
     uniqueConstraints = {@UniqueConstraint(name = "bonista_usuario_unico", columnNames = "correo")})
 @Data
 @Accessors(chain = true)
+
 public class Bonista {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "bonista_id")
+  
   private Long bonistaId;
-
   private String nombre;
   private String correo;
   private String contrasena;
