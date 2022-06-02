@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "439c6038-0a4c-41b3-8aea-eb736266eb9d",
+		"_postman_id": "70593685-b434-4748-a271-4d9c9fb89433",
 		"name": "Finanzas",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "15621437"
+		"_exporter_id": "15385953"
 	},
 	"item": [
 		{
@@ -13,7 +13,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"nombre\" : \"Francesco Bassino Salami\",\n    \"correo\" : \"francesco@gmail.com\",\n    \"contrasena\" : \"password123\"\n}",
+					"raw": "{\n    \"nombre\" : \"Francesco B\",\n    \"correo\" : \"francesco8@gmail.com\",\n    \"contrasena\" : \"password123\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -63,32 +63,13 @@
 			"response": []
 		},
 		{
-			"name": "get bonos by correo",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{base_url}}/api/bonos/francesco@gmail.com",
-					"host": [
-						"{{base_url}}"
-					],
-					"path": [
-						"api",
-						"bonos",
-						"francesco@gmail.com"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "crear bono corporativo",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"nombreCalculoBono\": \"Bono 2\",\n    \"fechaEmision\": \"2022-05-30T12:30:00\",\n    \"valorNominal\": \"69.99\",\n    \"valorComercial\": \"102.02\",\n    \"perCavali\": \"55.44\",\n    \"perColocacion\": \"123.001\",\n    \"perFlotacion\": \"29.599\",\n    \"perEstructuracion\": \"100.00\",\n    \"perImportRenta\": \"190.10\",\n    \"perTasaAnualDescuento\": \"12.65\",\n    \"aniosPago\": \"4\",\n    \"periodosGracia\": \"4\",\n    \"tipoTasaEfectiva\": true,\n    \"numeroDias\": 360,\n    \"tipoPeriodoFrecuenciaCupon\": 3,\n    \"tipoPeriodoCapitalTn\": 4,\n    \"nombreMoneda\": \"Nuevos soles\",\n    \"bonistaCorreo\": \"francesco@gmail.com\",\n    \"inflacionesAnuales\": [\"0.02\", \"0.03\", \"0.03\", \"0.02\"]\n}",
+					"raw": "{\n    \"nombreCalculoBono\": \"Bonoo\",\n    \"fechaEmision\": \"2022-05-30T12:30:00\",\n    \"valorNominal\": \"69.99\",\n    \"valorComercial\": \"102.02\",\n    \"perCavali\": \"55.44\",\n    \"perColocacion\": \"123.001\",\n    \"perFlotacion\": \"29.599\",\n    \"perEstructuracion\": \"100.00\",\n    \"perImportRenta\": \"190.10\",\n    \"perTasaAnualDescuento\": \"12.65\",\n    \"perTasaInteres\": \"0.10\",\n    \"perPrima\": \"0.02\",\n    \"aniosPago\": \"4\",\n    \"periodosGracia\": \"4\",\n    \"tipoTasaEfectiva\": true,\n    \"numeroDias\": 360,\n    \"tipoPeriodoFrecuenciaCupon\": 3,\n    \"tipoPeriodoCapitalTn\": 4,\n    \"nombreMoneda\": \"Nuevos soles\",\n    \"bonistaCorreo\": \"francesco8@gmail.com\",\n    \"inflacionesAnuales\": [\"0.02\", \"0.03\", \"0.03\", \"0.02\"]\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -103,6 +84,25 @@
 					"path": [
 						"api",
 						"bonos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get bonos by correo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/bonos/francesco8@gmail.com",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"bonos",
+						"francesco8@gmail.com"
 					]
 				}
 			},

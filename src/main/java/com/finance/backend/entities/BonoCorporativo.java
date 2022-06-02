@@ -37,6 +37,8 @@ public class BonoCorporativo {
   private BigDecimal perFlotacion;
   private BigDecimal perEstructuracion;
   private BigDecimal perImportRenta;
+  private BigDecimal perTasaInteres; //
+  private BigDecimal perPrima; //
   private BigDecimal perTasaAnualDescuento;
   private Integer aniosPago;
   private Integer periodosGracia;

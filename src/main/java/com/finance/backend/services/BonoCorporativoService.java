@@ -27,6 +27,8 @@ public class BonoCorporativoService {
             bonoCorporativoRepository.save(
                 new BonoCorporativo()
                     .setNombreCalculoBono(body.getNombreCalculoBono())
+                    .setPerPrima(body.getPerPrima())
+                    .setPerTasaInteres(body.getPerTasaInteres())
                     .setFechaEmision(body.getFechaEmision())
                     .setValorNominal(body.getValorNominal())
                     .setValorComercial(body.getValorComercial())
@@ -70,4 +72,6 @@ public class BonoCorporativoService {
         .map(bono -> modelMapper.map(bono, BonoCorporativoDto.class))
         .toList();
   }
+
+
 }
