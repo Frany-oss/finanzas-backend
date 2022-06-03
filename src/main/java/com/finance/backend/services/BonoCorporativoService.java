@@ -60,7 +60,7 @@ public class BonoCorporativoService {
                                     anioBonoRepository.save(
                                         new AnioBono()
                                             .setNumeroAnio(idx + 1)
-                                            .setPerInflacion(body.getInflacionesAnuales().get(idx))
+                                            .setPerInflacion(body.getInflacionAnual().get(idx))
                                             .setBonoCorporativo(bono)))
                             .toList()),
                     BonoCorporativoDto.class))

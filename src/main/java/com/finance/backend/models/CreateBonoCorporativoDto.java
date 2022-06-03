@@ -27,5 +27,5 @@ public class CreateBonoCorporativoDto {
   private Integer tipoPeriodoCapitalTn;
   private String nombreMoneda;
   private String bonistaCorreo;
-  private List<BigDecimal> inflacionesAnuales;
+  private List<BigDecimal> inflacionAnual;
 }
