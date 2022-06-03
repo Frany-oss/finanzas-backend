@@ -8,11 +8,11 @@ import lombok.experimental.Accessors;
 @Data
 @Accessors(chain = true)
 public class BonistaDto {
+  private Long bonistaId;
   private String nombre;
   private String correo;
   private Boolean activo;
 
-  @JsonIgnore private Long bonistaId;
   @JsonIgnore private String contrasena;
   @JsonIgnore private LocalDateTime fechaCreacion;
 }

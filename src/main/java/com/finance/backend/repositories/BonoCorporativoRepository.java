@@ -8,7 +8,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface BonoCorporativoRepository extends JpaRepository<BonoCorporativo, Long> {
-
   Optional<BonoCorporativo> findById(Long id);
   
   List<BonoCorporativo> findAll();
