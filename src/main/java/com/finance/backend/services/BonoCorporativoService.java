@@ -67,11 +67,39 @@ public class BonoCorporativoService {
         .orElseThrow(() -> new Exception("Error al guardar bono corporativo"));
   }
 
-  public List<BonoCorporativoDto> getBonosCorporativoByBonistaCorreo(String correo) {
-    return bonoCorporativoRepository.findByBonistaCorreo(correo).stream()
+  public BonoCorporativoDto getBonoByBonoId(Long bonoId) throws Exception {
+    return bonoCorporativoRepository
+        .findById(bonoId)
+        .map(bono -> modelMapper.map(bono, BonoCorporativoDto.class))
+        .orElseThrow(() -> new Exception("Error al obtener bono"));
+  }
+
+  public List<BonoCorporativoDto> getBonosByBonoNombre(String bonoNombre) throws Exception {
+    return bonoCorporativoRepository.findByNombreCalculoBonoIgnoreCase(bonoNombre).stream()
         .map(bono -> modelMapper.map(bono, BonoCorporativoDto.class))
         .toList();
   }
 
+  public List<BonoCorporativoDto> getBonosCorporativoByBonistaCorreo(String correo)
+      throws Exception {
+    return bonistaRepository
+        .findByCorreo(correo)
+        .map(
+            bonista ->
+                bonoCorporativoRepository.findByBonistaCorreo(bonista.getCorreo()).stream()
+                    .map(bono -> modelMapper.map(bono, BonoCorporativoDto.class))
+                    .toList())
+        .orElseThrow(() -> new Exception("Error al obtener bonista"));
+  }
 
+  public List<BonoCorporativoDto> getBonosByBonistaId(Long bonistaId) throws Exception {
+    return bonistaRepository
+        .findById(bonistaId)
+        .map(
+            bonista ->
+                bonoCorporativoRepository.findByBonistaBonistaId(bonista.getBonistaId()).stream()
+                    .map(bono -> modelMapper.map(bono, BonoCorporativoDto.class))
+                    .toList())
+        .orElseThrow(() -> new Exception("Error al obtener bonista"));
+  }
 }

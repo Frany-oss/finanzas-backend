@@ -22,15 +22,13 @@ import lombok.experimental.Accessors;
 @Table(name = "bono_corporativo")
 @Data
 @Accessors(chain = true)
-
 public class BonoCorporativo {
-	
+
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "bono_corporativo_id")
-  
   private Long bonoCorporativoId;
-  
+
   private String nombreCalculoBono;
   private LocalDateTime fechaEmision;
   private BigDecimal valorNominal;
@@ -40,8 +38,8 @@ public class BonoCorporativo {
   private BigDecimal perFlotacion;
   private BigDecimal perEstructuracion;
   private BigDecimal perImportRenta;
-  private BigDecimal perTasaInteres; //
-  private BigDecimal perPrima; //
+  private BigDecimal perTasaInteres;
+  private BigDecimal perPrima;
   private BigDecimal perTasaAnualDescuento;
   private Integer aniosPago;
   private Integer periodosGracia;
