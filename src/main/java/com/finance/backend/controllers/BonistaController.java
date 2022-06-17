@@ -16,21 +16,21 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(path = "/api/bonista")
 @RequiredArgsConstructor
 public class BonistaController {
-	private final BonistaService bonistaService;
+  private final BonistaService bonistaService;
 
-	@PostMapping("/signup")
-	public BonistaDto registerBonista(@RequestBody CreateBonistaDto createBonistaDto)
-			throws Exception {
-		return bonistaService.registerBonista(createBonistaDto);
-	}
+  @PostMapping("/signup")
+  public BonistaDto registerBonista(@RequestBody CreateBonistaDto createBonistaDto)
+      throws Exception {
+    return bonistaService.registerBonista(createBonistaDto);
+  }
 
-	@PostMapping("/login")
-	public BonistaDto loginBonista(@RequestBody LoginBonistaDto login) throws Exception {
-		return bonistaService.loginBonista(login);
-	}
+  @PostMapping("/login")
+  public BonistaDto loginBonista(@RequestBody LoginBonistaDto login) throws Exception {
+    return bonistaService.loginBonista(login);
+  }
 
-	@PutMapping("/update")
-	public BonistaDto updateBonista(@RequestBody UpdateBonistaDto updateBonistaDto) throws Exception {
-		return bonistaService.updateBonista(updateBonistaDto);
-	}
+  @PutMapping("/update")
+  public BonistaDto updateBonista(@RequestBody UpdateBonistaDto updateBonistaDto) throws Exception {
+    return bonistaService.updateBonista(updateBonistaDto);
+  }
 }

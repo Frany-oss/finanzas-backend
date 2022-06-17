@@ -21,8 +21,7 @@ public class BonistaService {
   public BonistaDto registerBonista(CreateBonistaDto createBonistaDto) throws Exception {
     return bonistaRepository.findByCorreo(createBonistaDto.getCorreo()).isPresent()
         ? (BonistaDto)
-            Optional.ofNullable(null)
-                .orElseThrow(() -> new Exception("Correo ya registrado"))
+            Optional.ofNullable(null).orElseThrow(() -> new Exception("Correo ya registrado"))
         : Optional.of(
                 bonistaRepository.save(
                     new Bonista()
@@ -51,21 +50,29 @@ public class BonistaService {
   }
 
   public BonistaDto updateBonista(UpdateBonistaDto updateBonistaDto) throws Exception {
-    return bonistaRepository.findByCorreo(updateBonistaDto.getCorreo()).isPresent()
+    return bonistaRepository
+            .findByCorreo(Optional.ofNullable(updateBonistaDto.getCorreo()).orElse(""))
+            .isPresent()
         ? (BonistaDto)
-            Optional.ofNullable(null)
-                .orElseThrow(() -> new Exception("Correo ya registrado"))
+            Optional.ofNullable(null).orElseThrow(() -> new Exception("Correo ya registrado"))
         : bonistaRepository
-        .findById(updateBonistaDto.getBonistaId())
-        .map(
-            b -> {
-              b.setNombre(updateBonistaDto.getNombre());
-              b.setTelefono(updateBonistaDto.getTelefono());
-              b.setCorreo(updateBonistaDto.getCorreo());
-              b.setContrasena(updateBonistaDto.getContrasena());
-              return bonistaRepository.save(b);
-            })
-        .map(b -> modelMapper.map(b, BonistaDto.class))
-        .orElseThrow(() -> new Exception("Error al actualizar el bonista"));
+            .findById(updateBonistaDto.getBonistaId())
+            .map(
+                b ->
+                    bonistaRepository.save(
+                        b.setNombre(
+                                Optional.ofNullable(updateBonistaDto.getNombre())
+                                    .orElse(b.getNombre()))
+                            .setTelefono(
+                                Optional.ofNullable(updateBonistaDto.getTelefono())
+                                    .orElse(b.getTelefono()))
+                            .setCorreo(
+                                Optional.ofNullable(updateBonistaDto.getCorreo())
+                                    .orElse(b.getCorreo()))
+                            .setContrasena(
+                                Optional.ofNullable(updateBonistaDto.getContrasena())
+                                    .orElse(b.getContrasena()))))
+            .map(b -> modelMapper.map(b, BonistaDto.class))
+            .orElseThrow(() -> new Exception("Error al actualizar el bonista"));
   }
 }
