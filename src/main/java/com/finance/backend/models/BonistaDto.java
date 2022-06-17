@@ -11,6 +11,7 @@ public class BonistaDto {
   private Long bonistaId;
   private String nombre;
   private String correo;
+  private String telefono;
   private Boolean activo;
 
   @JsonIgnore private String contrasena;

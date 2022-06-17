@@ -25,6 +25,7 @@ public class Bonista {
   
   private Long bonistaId;
   private String nombre;
+  private String telefono;
   private String correo;
   private String contrasena;
   private LocalDateTime fechaCreacion;

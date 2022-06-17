@@ -6,6 +6,7 @@ import com.finance.backend.models.LoginBonistaDto;
 import com.finance.backend.services.BonistaService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,5 +26,11 @@ public class BonistaController {
   @PostMapping("/login")
   public BonistaDto loginBonista(@RequestBody LoginBonistaDto login) throws Exception {
     return bonistaService.loginBonista(login);
+  }
+
+  @PutMapping("/update")
+  public BonistaDto updateBonista(@RequestBody CreateBonistaDto createBonistaDto)
+      throws Exception {
+    return bonistaService.updateBonista(createBonistaDto);
   }
 }
