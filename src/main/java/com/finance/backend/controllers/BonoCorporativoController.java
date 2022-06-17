@@ -64,7 +64,7 @@ public class BonoCorporativoController {
   }
 
   @DeleteMapping("/bonos/{bonoId}")
-  public String  deleteBonoCorporativo(@PathVariable("bonoId") Long bonoId) throws Exception {
+  public BonoCorporativoDto deleteBonoCorporativo(@PathVariable("bonoId") Long bonoId) throws Exception {
     return bonoCorporativoService.deleteBonoCorporativo(bonoId);
   }
 }
