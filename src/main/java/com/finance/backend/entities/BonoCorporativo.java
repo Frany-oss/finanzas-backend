@@ -59,7 +59,7 @@ public class BonoCorporativo {
 
   @OneToMany(
       fetch = FetchType.EAGER,
+      mappedBy = "bonoCorporativo",
       cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
-  @JoinColumn(name = "bono_corporativo_id")
   private List<AnioBono> inflacionAnual;
 }
