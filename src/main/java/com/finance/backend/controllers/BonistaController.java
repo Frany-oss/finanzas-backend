@@ -29,7 +29,7 @@ public class BonistaController {
     return bonistaService.loginBonista(login);
   }
 
-  @PutMapping("/update")
+  @PutMapping
   public BonistaDto updateBonista(@RequestBody UpdateBonistaDto updateBonistaDto) throws Exception {
     return bonistaService.updateBonista(updateBonistaDto);
   }

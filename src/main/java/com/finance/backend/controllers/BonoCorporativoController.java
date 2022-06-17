@@ -8,6 +8,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Stream;
 import lombok.RequiredArgsConstructor;
+
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -59,5 +61,10 @@ public class BonoCorporativoController {
   public List<BonoCorporativoDto> getBonosCorporativoByBonistaCorreo(
       @PathVariable("correo") String correo) throws Exception {
     return bonoCorporativoService.getBonosCorporativoByBonistaCorreo(correo);
+  }
+
+  @DeleteMapping("/bonos/{bonoId}")
+  public String  deleteBonoCorporativo(@PathVariable("bonoId") Long bonoId) throws Exception {
+    return bonoCorporativoService.deleteBonoCorporativo(bonoId);
   }
 }

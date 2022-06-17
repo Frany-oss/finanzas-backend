@@ -102,4 +102,10 @@ public class BonoCorporativoService {
                     .toList())
         .orElseThrow(() -> new Exception("Error al obtener bonista"));
   }
+
+    public String deleteBonoCorporativo(Long bonoId) {
+        bonoCorporativoRepository.deleteById(bonoId);
+        return "Bono eliminado";
+    }
+
 }
