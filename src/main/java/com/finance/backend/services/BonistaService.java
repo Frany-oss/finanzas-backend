@@ -53,8 +53,9 @@ public class BonistaService {
     return bonistaRepository
             .findByCorreo(Optional.ofNullable(updateBonistaDto.getCorreo()).orElse(""))
             .isPresent()
-        ? (BonistaDto)
-            Optional.ofNullable(null).orElseThrow(() -> new Exception("Correo ya registrado"))
+        ? Optional.ofNullable(null)
+            .map(b -> new BonistaDto())
+            .orElseThrow(() -> new Exception("Correo ya registrado"))
         : bonistaRepository
             .findById(updateBonistaDto.getBonistaId())
             .map(
