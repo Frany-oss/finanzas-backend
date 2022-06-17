@@ -13,7 +13,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"nombre\" : \"Francesco B\",\n    \"correo\" : \"francesco8@gmail.com\",\n    \"contrasena\" : \"password123\"\n}",
+					"raw": "{\n    \"nombre\" : \"Francesco B\",\n    \"correo\" : \"francesco1@gmail.com\",\n    \"contrasena\" : \"password123\",\n    \"telefono\": \"9874698\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -69,7 +69,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"nombreCalculoBono\": \"bonito campesito\",\n    \"fechaEmision\": \"2022-05-30T12:30:00\",\n    \"valorNominal\": \"69.99\",\n    \"valorComercial\": \"102.02\",\n    \"perCavali\": \"55.44\",\n    \"perColocacion\": \"123.001\",\n    \"perFlotacion\": \"29.599\",\n    \"perEstructuracion\": \"100.00\",\n    \"perImportRenta\": \"190.10\",\n    \"perTasaAnualDescuento\": \"12.65\",\n    \"perTasaInteres\": \"0.10\",\n    \"perPrima\": \"0.02\",\n    \"aniosPago\": \"4\",\n    \"periodosGracia\": \"4\",\n    \"tipoTasaEfectiva\": true,\n    \"numeroDias\": 360,\n    \"tipoPeriodoFrecuenciaCupon\": 3,\n    \"tipoPeriodoCapitalTn\": 4,\n    \"nombreMoneda\": \"Nuevos soles\",\n    \"bonistaCorreo\": \"francesco8@gmail.com\",\n    \"inflacionesAnuales\": [\"0.02\", \"0.03\", \"0.03\", \"0.02\"]\n}",
+					"raw": "{\n    \"nombreCalculoBono\": \"bonoPrueba\",\n    \"fechaEmision\": \"2022-05-30T12:30:00\",\n    \"valorNominal\": \"69.99\",\n    \"valorComercial\": \"102.02\",\n    \"perCavali\": \"55.44\",\n    \"perColocacion\": \"123.001\",\n    \"perFlotacion\": \"29.599\",\n    \"perEstructuracion\": \"100.00\",\n    \"perImportRenta\": \"190.10\",\n    \"perTasaAnualDescuento\": \"12.65\",\n    \"perTasaInteres\": \"0.10\",\n    \"perPrima\": \"0.02\",\n    \"aniosPago\": \"4\",\n    \"periodosGracia\": \"4\",\n    \"tipoTasaEfectiva\": true,\n    \"numeroDias\": 360,\n    \"tipoPeriodoFrecuenciaCupon\": 3,\n    \"tipoPeriodoCapitalTn\": 4,\n    \"nombreMoneda\": \"Nuevos soles\",\n    \"bonistaCorreo\": \"francesco8@gmail.com\",\n    \"inflacionAnual\": [\"0.02\", \"0.04\", \"0.03\", \"0.02\"]\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -95,7 +95,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{base_url}}/api/bonos/id/9",
+					"raw": "{{base_url}}/api/bonos/id/15",
 					"host": [
 						"{{base_url}}"
 					],
@@ -103,7 +103,7 @@
 						"api",
 						"bonos",
 						"id",
-						"9"
+						"15"
 					]
 				}
 			},
@@ -174,6 +174,52 @@
 						"bonista",
 						"correo",
 						"francesco8@gmail.com"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update bonista",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"bonistaId\": 8,\r\n    \"nombre\": \"Francesco3\",\r\n    \"telefono\": \"4444\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/bonista",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"bonista"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete bono corporativo",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/bono/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"bono",
+						"1"
 					]
 				}
 			},
