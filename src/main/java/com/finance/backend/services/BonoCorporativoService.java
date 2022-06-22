@@ -103,9 +103,16 @@ public class BonoCorporativoService {
         .orElseThrow(() -> new Exception("Error al obtener bonista"));
   }
 
-    public String deleteBonoCorporativo(Long bonoId) {
-        bonoCorporativoRepository.deleteById(bonoId);
-        return "Bono eliminado";
-    }
+  public BonoCorporativoDto deleteBonoCorporativo(Long bonoId) throws Exception {
+    return bonoCorporativoRepository
+        .findById(bonoId)
+        .map(
+            b -> {
+              b.getInflacionAnual().forEach(anioBono -> anioBonoRepository.delete(anioBono));
+              bonoCorporativoRepository.deleteById(b.getBonoCorporativoId());
 
+              return modelMapper.map(b, BonoCorporativoDto.class);
+            })
+        .orElseThrow(() -> new Exception("Error al obtener bonista"));
+  }
 }
