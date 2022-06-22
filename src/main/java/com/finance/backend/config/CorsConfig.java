@@ -15,7 +15,7 @@ public class CorsConfig {
         new UrlBasedCorsConfigurationSource();
     CorsConfiguration corsConfiguration = new CorsConfiguration();
     corsConfiguration.setAllowCredentials(true);
-    corsConfiguration.setAllowedOrigins(Arrays.asList("http://localhost:4200"));
+    corsConfiguration.setAllowedOrigins(Arrays.asList("http://localhost:4200", "https://bonopick-v1.web.app"));
     corsConfiguration.setAllowedHeaders(
         Arrays.asList(
             "Origin",
