@@ -46,9 +46,7 @@ public class BonoCorporativoController {
                 : List.of(bonoCorporativoService.getBonoByBonoId(bonoId)),
             bonoId == null
                 ? bonoCorporativoService.getBonosByBonoNombre(bonoNombre)
-                : Collections.<BonoCorporativoDto>emptyList())
-        .flatMap(Collection::stream)
-        .toList();
+                : Collections.<BonoCorporativoDto>emptyList()).flatMap(Collection::stream).toList();
   }
 
   @GetMapping("/bonos/bonista/id/{bonistaId}")

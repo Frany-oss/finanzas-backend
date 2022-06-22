@@ -31,22 +31,19 @@ public class BonistaService {
                         .setContrasena(createBonistaDto.getContrasena())
                         .setFechaCreacion(LocalDateTime.now())
                         .setActivo(true)))
-            .map(b -> modelMapper.map(b, BonistaDto.class))
-            .orElseThrow(() -> new Exception("Error al crear el bonista"));
+            .map(b -> modelMapper.map(b, BonistaDto.class)).orElseThrow(() -> new Exception("Error al crear el bonista"));
   }
 
   public BonistaDto getBonistaByCorreo(String correo) throws Exception {
     return bonistaRepository
         .findByCorreo(correo)
-        .map(b -> modelMapper.map(b, BonistaDto.class))
-        .orElseThrow(() -> new Exception("Error al obtener el bonista"));
+        .map(b -> modelMapper.map(b, BonistaDto.class)).orElseThrow(() -> new Exception("Error al obtener el bonista"));
   }
 
   public BonistaDto loginBonista(LoginBonistaDto login) throws Exception {
     return Optional.of(
             bonistaRepository.findByCorreoAndContrasena(login.getCorreo(), login.getContrasena()))
-        .map(b -> modelMapper.map(b, BonistaDto.class))
-        .orElseThrow(() -> new Exception("Credenciales incorrectos"));
+        .map(b -> modelMapper.map(b, BonistaDto.class)).orElseThrow(() -> new Exception("Credenciales incorrectos"));
   }
 
   public BonistaDto updateBonista(UpdateBonistaDto updateBonistaDto) throws Exception {
