@@ -17,8 +17,8 @@ public class CreateBonoCorporativoDto {
   private BigDecimal perEstructuracion;
   private BigDecimal perImportRenta;
   private BigDecimal perTasaAnualDescuento;
-  private BigDecimal perTasaInteres; //
-  private BigDecimal perPrima; //
+  private BigDecimal perTasaInteres; 
+  private BigDecimal perPrima; 
   private Integer aniosPago;
   private Integer periodosGracia;
   private Boolean tipoTasaEfectiva;
