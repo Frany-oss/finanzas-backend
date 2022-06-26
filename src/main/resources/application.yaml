@@ -6,7 +6,7 @@ spring:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://ec2-44-194-117-205.compute-1.amazonaws.com:5432/d9hm8sk85amp3v
     username: cbnywuaixwppql
-    password: 5808cf8d4eafb8f75720bb23ca73d6025854f3b014d988abea6036fd0e02fd2b
+    password:  5808cf8d4eafb8f75720bb23ca73d6025854f3b014d988abea6036fd0e02fd2b
     test-while-idle: true
     validation-query: SELECT 1
     time-between-eviction-runs-millis: 60000

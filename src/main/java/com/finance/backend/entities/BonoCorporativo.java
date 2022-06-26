@@ -23,6 +23,7 @@ import lombok.experimental.Accessors;
 @Data
 @Accessors(chain = true)
 public class BonoCorporativo {
+	
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "bono_corporativo_id")
@@ -82,4 +83,5 @@ public class BonoCorporativo {
       mappedBy = "bonoCorporativo",
       cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
   private List<AnioBono> inflacionAnual;
+  
 }
