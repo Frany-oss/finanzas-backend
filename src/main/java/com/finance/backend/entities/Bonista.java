@@ -18,6 +18,7 @@ import lombok.experimental.Accessors;
 @Data
 @Accessors(chain = true)
 public class Bonista {
+	
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "bonista_id")
@@ -29,4 +30,5 @@ public class Bonista {
   private String contrasena;
   private LocalDateTime fechaCreacion;
   private Boolean activo;
+  
 }

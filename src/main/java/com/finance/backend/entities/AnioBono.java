@@ -19,6 +19,7 @@ import lombok.experimental.Accessors;
 @Data
 @Accessors(chain = true)
 public class AnioBono {
+	
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "anio_bono_id")
@@ -36,4 +37,5 @@ public class AnioBono {
       referencedColumnName = "bono_corporativo_id",
       foreignKey = @ForeignKey(name = "anio_bono_bono_corporativo_fk"))
   private BonoCorporativo bonoCorporativo;
+  
 }
